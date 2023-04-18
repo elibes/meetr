@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "466033899475",
+    "project_id": "meetr-android",
+    "storage_bucket": "meetr-android.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:466033899475:android:5374117e0e83aa4fd42126",
+        "android_client_info": {
+          "package_name": "com.group7.meetr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "466033899475-22tc8to9gbiggmm44u7civgao86vc2m0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.group7.meetr",
+            "certificate_hash": "3465e14b27354263ac08e4206d61cbb7a65ca822"
+          }
+        },
+        {
+          "client_id": "466033899475-plqfbh0tti907er4gd4k1pmdaq0tog70.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrE1BRMcWWULiSjQbDG3COwtYc-9G2qo8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "466033899475-plqfbh0tti907er4gd4k1pmdaq0tog70.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
