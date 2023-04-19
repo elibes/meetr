@@ -1,12 +1,14 @@
 package com.group7.meetr;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.BindingAdapter;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,20 +16,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_page); // set till en xml view
-        Button button = (Button) findViewById(R.id.btnConfirmEmail);
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Log.d("BUTTONS", "User tapped the Supabutton");
-                TextView txt = findViewById(R.id.txtViewHint);
-                //txt.setAllCaps(true);
-                TextView txt2 = findViewById(R.id.editTextTextEmailAddress);
+        setContentView(R.layout.loginpagev2); // set till en xml view
 
-                Log.d("DEBUG_EMAIL_OUTPUT", txt2.getText().toString());
 
-                // för att få output till nästa steg ta txt2.gettext
+    }
 
-            }
-        });
+    // any change in toastMessage attribute
+// defined on the Button with bind prefix
+// invokes this method
+    @BindingAdapter({ "toastMessage" })
+    public static void runMe(View view, String message) {
+        if (message != null)
+            Toast
+                    .makeText(view.getContext(), message,
+                            Toast.LENGTH_SHORT)
+                    .show();
     }
 }

@@ -23,7 +23,7 @@
         android:layout_marginTop="36dp"
         android:layout_marginEnd="101dp"
         android:ems="10"
-        android:hint="@string/email_address"
+        android:hint="@string/hint_email_address"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="122dp"
         android:layout_marginTop="289dp"
-        android:text="@string/enter_email_to_join_meeting"
+        android:text="@string/instr_email_login"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
