@@ -8,6 +8,7 @@ import androidx.databinding.BindingAdapter;
 import androidx.databinding.DataBindingUtil;
 import com.group7.meetr.databinding.Loginpagev2Binding;
 import com.group7.meetr.viewmodel.LoginPageViewModel;
+import com.group7.meetr.activity.EmailPasswordActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,12 +22,18 @@ public class MainActivity extends AppCompatActivity {
 
         // model will also update the view
         // via the ViewModel
+
+        LoginPageViewModel lpvm = new LoginPageViewModel();
         Loginpagev2Binding activityMainBinding
                 = DataBindingUtil.setContentView(
                 this, R.layout.loginpagev2);
-        activityMainBinding.setViewModel(
-                new LoginPageViewModel());
+        activityMainBinding.setViewModel(lpvm);
         activityMainBinding.executePendingBindings();
+    }
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+
     }
 
     @BindingAdapter({ "toastMessage" })

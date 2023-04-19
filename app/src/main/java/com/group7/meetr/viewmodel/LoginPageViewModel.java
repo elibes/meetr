@@ -6,6 +6,7 @@ import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 
 import com.group7.meetr.BR;
+import com.group7.meetr.activity.EmailPasswordActivity;
 import com.group7.meetr.model.LoginPageModel;
 
 public class LoginPageViewModel extends BaseObservable {
@@ -64,8 +65,12 @@ public class LoginPageViewModel extends BaseObservable {
 
     public void onButtonClicked() {
         if (isValid()) {
+
             Log.d("!User Email", getUserEmail());
             Log.d("!User Pass", getUserPassword());
+            EmailPasswordActivity emailLogIn = new EmailPasswordActivity();
+            EmailPasswordActivity.login();
+            emailLogIn.createAccount(getUserEmail(), getUserPassword());
             setToastMessage(successMessage);
         }
         else
