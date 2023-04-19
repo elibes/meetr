@@ -19,6 +19,7 @@
         android:background="#168BC34A"
         android:orientation="vertical">
 
+
         <!-- EditText field for the Email -->
         <EditText
             android:id="@+id/inEmail"
@@ -28,12 +29,22 @@
             android:layout_marginTop="60dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="20dp"
-            android:hint="@string/hint_email_address"
+            android:hint="@string/email_hint"
             android:inputType="textEmailAddress"
-            android:minHeight="48dp"
             android:padding="8dp"
-            android:text="@={viewModel.MEmailAdress}"
-            android:autofillHints="" />
+            android:text="@={viewModel.userEmail}" />
+
+        <!-- EditText field for the password -->
+        <EditText
+            android:id="@+id/inPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:hint="@string/password_hint"
+            android:inputType="textPassword"
+            android:padding="8dp"
+            android:text="@={viewModel.userPassword}" />
 
         <!-- Login Button of the activity -->
         <Button
@@ -44,13 +55,11 @@
             android:layout_marginEnd="20dp"
             android:background="#4CAF50"
             android:onClick="@{()-> viewModel.onButtonClicked()}"
-            android:text="@string/confirm"
-            android:textColor="#0D47A1"
+            android:text="@string/button_text"
+            android:textColor="@android:color/background_light"
             android:textSize="30sp"
             android:textStyle="bold"
-            bind:ignore="VisualLintButtonSize"
             bind:toastMessage="@{viewModel.toastMessage}" />
-
 
 
     </LinearLayout>

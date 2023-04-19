@@ -1,9 +1,7 @@
 package com.group7.meetr.viewmodel;
-
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Patterns;
-
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 
@@ -12,48 +10,71 @@ import com.group7.meetr.model.LoginPageModel;
 
 public class LoginPageViewModel extends BaseObservable {
 
-    //view models implement a private instance of their respective model
-    LoginPageModel lgnPage;
-    private String successMessage = "Logged in to meeting";
-    //private String errorMessage = "Email is not valid";
+    // creating object of Model class
+    private LoginPageModel model;
+
+    // string variables for
+    // toast messages
+    private String successMessage = "Login successful";
+    private String errorMessage = "Email or Password is not valid";
+
     @Bindable
-    // string variable for success/fail toast message. bound to toast.
     private String toastMessage = null;
+
+
     public String getToastMessage() {
         return toastMessage;
     }
-    public void setToastMessage(String toastMessage) {
+
+    private void setToastMessage(String toastMessage) {
         this.toastMessage = toastMessage;
+        notifyPropertyChanged(BR.toastMessage);
     }
-    public String getMEmailAdress(){
-        return lgnPage.getEmail();
+
+
+    @Bindable
+    public String getUserEmail() {
+        return model.getEmail();
     }
-    public void setMEmailAdress(String s){
-        lgnPage.setEmail(s);
-        notifyPropertyChanged(BR.viewModel);
+
+    public void setUserEmail(String email) {
+        model.setEmail(email);
+        notifyPropertyChanged(BR.userEmail);
     }
-    // constructor of ViewModel class
+
+
+    @Bindable
+    public String getUserPassword() {
+        return model.getPassword();
+    }
+
+    public void setUserPassword(String password) {
+        model.setPassword(password);
+        notifyPropertyChanged(BR.userPassword);
+    }
+
+
     public LoginPageViewModel() {
 
         // instantiating object of
         // model class
-        lgnPage = new LoginPageModel("");
+        model = new LoginPageModel("","");
     }
 
-    // actions to be performed
-    // when user clicks
-    // the LOGIN button
+
     public void onButtonClicked() {
-        if (isValid()){
+        if (isValid()) {
+            Log.d("!User Email", getUserEmail());
+            Log.d("!User Pass", getUserPassword());
             setToastMessage(successMessage);
-            Log.d("LOGIN", "Passed email check.");
         }
+        else
+            setToastMessage(errorMessage);
     }
 
-    // method to keep a check
-    // that variable fields must
-    // not be kept empty by user
+
     public boolean isValid() {
-        return !TextUtils.isEmpty(getMEmailAdress()) && Patterns.EMAIL_ADDRESS.matcher(getMEmailAdress()).matches();
+        return !TextUtils.isEmpty(getUserEmail()) && Patterns.EMAIL_ADDRESS.matcher(getUserEmail()).matches()
+                && getUserPassword().length() > 5;
     }
 }
