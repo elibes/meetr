@@ -10,6 +10,8 @@ import com.group7.meetr.databinding.Loginpagev2Binding;
 import com.group7.meetr.viewmodel.LoginPageViewModel;
 import com.group7.meetr.activity.EmailPasswordActivity;
 
+import com.google.firebase.database.FirebaseDatabase;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -29,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
                 this, R.layout.loginpagev2);
         activityMainBinding.setViewModel(lpvm);
         activityMainBinding.executePendingBindings();
+        FirebaseDatabase database = FirebaseDatabase.getInstance("https://meetr-android-default-rtdb.europe-west1.firebasedatabase.app/");
+        NewSession newSession = new NewSession(database);
+        newSession.createSession();
     }
     public void onStart() {
         super.onStart();
