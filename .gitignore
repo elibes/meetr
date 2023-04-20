@@ -362,3 +362,6 @@ local.properties
 *.lock
 *.bin
 *.bin
+.gradle/7.5/fileHashes/fileHashes.bin
+*.bin
+*.lock
