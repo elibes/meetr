@@ -81,12 +81,13 @@ public class LoginPageViewModel extends BaseObservable {
 
         FirebaseDatabase database = FirebaseDatabase.getInstance("https://meetr-android-default-rtdb.europe-west1.firebasedatabase.app/");
 
-        if(getUserEmail().contains("admin@admin.com")) {
+        String userMail = getUserEmail();
+        if(userMail.contains("admin@admin.com")) {
             NewSession newSession = new NewSession(database);
-            newSession.createSession();
+            newSession.createSession(userMail);
         } else {
             JoinSession joinSession = new JoinSession(database);
-            joinSession.joinSession();
+            joinSession.joinSession(userMail);
         }
     }
 
