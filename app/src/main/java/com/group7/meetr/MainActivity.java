@@ -31,9 +31,6 @@ public class MainActivity extends AppCompatActivity {
                 this, R.layout.loginpagev2);
         activityMainBinding.setViewModel(lpvm);
         activityMainBinding.executePendingBindings();
-        FirebaseDatabase database = FirebaseDatabase.getInstance("https://meetr-android-default-rtdb.europe-west1.firebasedatabase.app/");
-        NewSession newSession = new NewSession(database);
-        newSession.createSession();
     }
     public void onStart() {
         super.onStart();
