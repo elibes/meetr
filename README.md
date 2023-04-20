@@ -1,1 +1,1 @@
-Meetr Application
+Meetr Android App
