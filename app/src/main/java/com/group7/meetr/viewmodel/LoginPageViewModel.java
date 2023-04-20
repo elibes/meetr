@@ -5,7 +5,10 @@ import android.util.Patterns;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 
+import com.google.firebase.database.FirebaseDatabase;
 import com.group7.meetr.BR;
+import com.group7.meetr.JoinSession;
+import com.group7.meetr.NewSession;
 import com.group7.meetr.activity.EmailPasswordActivity;
 import com.group7.meetr.model.LoginPageModel;
 
@@ -70,11 +73,21 @@ public class LoginPageViewModel extends BaseObservable {
             Log.d("!User Pass", getUserPassword());
             EmailPasswordActivity emailLogIn = new EmailPasswordActivity();
             EmailPasswordActivity.login();
-            emailLogIn.createAccount(getUserEmail(), getUserPassword());
+            emailLogIn.signIn(getUserEmail(), getUserPassword());
             setToastMessage(successMessage);
         }
         else
             setToastMessage(errorMessage);
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance("https://meetr-android-default-rtdb.europe-west1.firebasedatabase.app/");
+
+        if(getUserEmail().contains("admin@admin.com")) {
+            NewSession newSession = new NewSession(database);
+            newSession.createSession();
+        } else {
+            JoinSession joinSession = new JoinSession(database);
+            joinSession.joinSession();
+        }
     }
 
 
