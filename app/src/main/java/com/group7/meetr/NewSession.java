@@ -20,12 +20,12 @@ public class NewSession {
 
     /**
      * Adds a session identification number in database as a child to "Sessions";
-     * represents the existence of a meeting session.
+     * represents the existence of a meeting session, as well as the current moderator
+     * under the created session.
      */
     public void createSession() {
         Random rand = new Random();
         String sessionID = String.valueOf(rand.nextInt(9999999));
-
-        mDatabase.push().setValue(sessionID);
+        mDatabase.child(sessionID).child("Moderator").setValue("User ID / Name here");
     }
 }
