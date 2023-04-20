@@ -19,9 +19,9 @@ public class JoinSession {
     /**
      * Joins a hardcoded meeting session and adds the signed in user's email address
      */
-    public void joinSession() {
+    public void joinSession(String email) {
         String sessionID = "7";
-        mDatabase.child(sessionID).child("Participants").push().setValue(EmailPasswordActivity.getUserMail());
+        mDatabase.child(sessionID).child("Participants").push().setValue(email);
     }
 }
 
