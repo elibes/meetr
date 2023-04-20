@@ -354,3 +354,11 @@ lint/tmp/
 
 *.lock
 *.bin
+local.properties
+local.properties
+local.properties
+local.properties
+.gradle/7.5/checksums/checksums.lock
+*.lock
+*.bin
+*.bin
