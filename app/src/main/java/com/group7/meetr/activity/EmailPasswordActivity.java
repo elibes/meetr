@@ -85,7 +85,7 @@ public class EmailPasswordActivity extends Activity {
         // [END create_user_with_email]
     }
 
-    private void signIn(String email, String password) {
+    public void signIn(String email, String password) {
         // [START sign_in_with_email]
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -126,5 +126,9 @@ public class EmailPasswordActivity extends Activity {
 
     private static void updateUI(FirebaseUser user) {
 
+    }
+
+    public static String getUserMail() {
+        return mAuth.getCurrentUser().getEmail();
     }
 }
