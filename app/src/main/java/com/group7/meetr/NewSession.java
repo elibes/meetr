@@ -2,6 +2,7 @@ package com.group7.meetr;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.group7.meetr.activity.EmailPasswordActivity;
 
 import java.util.Random;
 
@@ -24,8 +25,7 @@ public class NewSession {
      * under the created session.
      */
     public void createSession() {
-        Random rand = new Random();
-        String sessionID = String.valueOf(rand.nextInt(9999999));
-        mDatabase.child(sessionID).child("Moderator").setValue("User ID / Name here");
+        String sessionID = "7";
+        mDatabase.child(sessionID).child("Moderator").setValue(EmailPasswordActivity.getUserMail());
     }
 }
