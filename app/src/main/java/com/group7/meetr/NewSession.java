@@ -24,8 +24,8 @@ public class NewSession {
      * represents the existence of a meeting session, as well as the current moderator
      * under the created session.
      */
-    public void createSession() {
+    public void createSession(String userMail) {
         String sessionID = "7";
-        mDatabase.child(sessionID).child("Moderator").setValue(EmailPasswordActivity.getUserMail());
+        mDatabase.child(sessionID).child("Moderator").setValue(userMail);
     }
 }
